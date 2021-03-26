@@ -1,11 +1,16 @@
 image: texlive/texlive
 
-build:
+LuaLaTeX:
     script: 
         - latexmk -pdflua thesis.tex
+
+XeLaTeX:
+    script: 
         - latexmk -pdfxe thesis.tex
+
+pdfLaTeX:
+    script: 
         - latexmk -pdf thesis.tex
-        - latexmk -pdfps thesis.tex
     artifacts:
         paths:
             - thesis.pdf
