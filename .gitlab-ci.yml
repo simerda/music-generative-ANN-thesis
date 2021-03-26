@@ -14,3 +14,11 @@ pdfLaTeX:
     artifacts:
         paths:
             - thesis.pdf
+
+LaTeX:
+    script: 
+        - apt-get update && apt-get install ghostscript
+        - latexmk -pdfps thesis.tex
+    artifacts:
+        paths:
+            - thesis.pdf
