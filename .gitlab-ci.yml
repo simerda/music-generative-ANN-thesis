@@ -1,6 +1,6 @@
 image: texlive/texlive
 script: 
-    - latexmk -pdflua thesis.tex
-    - latexmk -pdfxe thesis.tex
-    - latexmk -pdf thesis.tex
-    - latexmk -pdfps thesis.tex
+- latexmk -pdflua thesis.tex
+- latexmk -pdfxe thesis.tex
+- latexmk -pdf thesis.tex
+- latexmk -pdfps thesis.tex
