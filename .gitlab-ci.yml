@@ -17,7 +17,8 @@ pdfLaTeX:
 
 LaTeX:
     script: 
-        - apt-get update && apt-get install ghostscript
+        - DEBIAN_FRONTEND=noninteractive apt-get update
+        - DEBIAN_FRONTEND=noninteractive apt-get -yq install ghostscript
         - latexmk -pdfps thesis.tex
     artifacts:
         paths:
