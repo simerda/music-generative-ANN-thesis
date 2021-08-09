@@ -1,6 +1,7 @@
 *.aux
 *.bbl
 *.blg
+*.dvi
 *.fdb_latexmk
 *.fls
 *.lof
@@ -9,5 +10,6 @@
 *.lot
 *.out
 *.pdf
+*.ps
 *.run.xml
 *.toc
