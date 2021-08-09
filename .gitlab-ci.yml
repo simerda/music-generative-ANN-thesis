@@ -2,18 +2,18 @@ image: texlive/texlive
 
 LuaLaTeX:
     script: 
-        - latexmk -pdflua thesis.tex
+        - latexmk -pdflua ctufit-thesis.tex
 
 XeLaTeX:
     script: 
-        - latexmk -pdfxe thesis.tex
+        - latexmk -pdfxe ctufit-thesis.tex
 
 pdfLaTeX:
     script: 
-        - latexmk -pdf thesis.tex
+        - latexmk -pdf ctufit-thesis.tex
     artifacts:
         paths:
-            - thesis.pdf
+            - ctufit-thesis.pdf
 
 LaTeX:
     script: 
@@ -22,4 +22,4 @@ LaTeX:
         - latexmk -pdfps thesis.tex
     artifacts:
         paths:
-            - thesis.pdf
+            - ctufit-thesis.pdf
