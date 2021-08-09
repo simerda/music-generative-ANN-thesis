@@ -1,0 +1,220 @@
+%% This is the ctufit-thesis example file. It is used to produce theses
+%% for submission to Czech Technical University, Faculty of Information Technology.
+%%
+%% Get the newest version from
+%% https://gitlab.fit.cvut.cz/theses-templates/FITthesis-LaTeX
+%%
+%%
+%% Copyright 2021, Eliska Sestakova and Ondrej Guth
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public Licenese, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%  https://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The current maintainer of this work is Ondrej Guth.
+%% Contact ondrej.guth@fit.cvut.cz for bug reports.
+%% Alternatively, submit bug reports into the tracker at
+%% https://gitlab.fit.cvut.cz/theses-templates/FITthesis-LaTeX/issues
+%%
+%%
+
+\documentclass[czech,master]{ctufit-thesis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FILL IN THIS INFORMATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ctufittitle{Název příkladné závěrečné práce}
+\ctufitauthorfull{Bc. Jiří Nebozíz} 
+\ctufitauthorsurnames{Nebozíz}
+\ctufitauthorgivennames{Jiří}
+\ctufitsupervisor{doc.\,Ing.\,Damien Zlo,\,Ph.D.}
+\ctufitdepartment{Katedra teoretické informatiky}
+\ctufityear{2021}
+\ctufitdeclarationplace{Praze}
+\ctufitdeclarationdate{\today}
+\ctufitabstraktCZE{Fill in abstract of this thesis in Czech language. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue.}
+\ctufitabstractENG{Fill in abstract of this thesis in English language. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue.}
+\ctufitkeywordsCZE{Fill in keywords of this thesis in Czech.}
+\ctufitkeywordsENG{Fill in keywords of this thesis in English.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END FILL IN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{iftex}[2020/03/06]
+\iftutex
+    \RequirePackage{ellipsis}[2020/05/22] %ellipsis workaround for XeLaTeX
+\else
+    \RequirePackage[utf8]{inputenc}[2018/08/11] %this file encoding
+    \RequirePackage{lmodern}[2009/10/30]
+\fi
+
+\RequirePackage[pdfpagelayout=TwoPageRight]{hyperref}[2020-05-15] % optional package
+\RequirePackage{pdfpages}[2020/01/28]
+% \RequirePackage{emptypage}[2010/05/30]
+
+
+\bibliographystyle{plainurl}% the mandatory bibstyle
+
+\setcounter{secnumdepth}{4} % numbering sections; 4: subsubsection
+
+% code listings settings
+\RequirePackage{listings}[2020/03/24] % typesetting of sources
+% 	\@ifpackageloaded{listings}{%
+		\DeclareRobustCommand{\lstlistingname}{\thectufitlistinglabel}%
+		\DeclareRobustCommand{\lstlistlistingname}{\thectufitlollabel}%
+		\lstset{basicstyle=\small\ttfamily,keywordstyle=\bfseries,%
+				backgroundcolor=\color{backgroundgray},%
+				frame=single,framerule=0pt,xleftmargin=\fboxsep,xrightmargin=\fboxsep}%
+% 	}{}%
+% code listings settings END
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TEMPLATE SETTINGS END
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% DEMO CONTENTS SETTINGS
+% You may choose to modify this part.
+%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{dirtree}
+\usepackage{lipsum,tikz}
+%%%%%%%%%%%%%%%%%%%%%%
+% DEMO CONTENTS SETTINGS END
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document} 
+\frontmatter\frontmatterinit
+
+\includepdf{assignment-include.pdf}
+
+\thispagestyle{empty}
+\cleardoublepage
+
+\maketitle
+
+\imprintpage
+
+\tableofcontents
+\listoffigures
+\begingroup
+\let\clearpage\relax
+\listoftables
+\lstlistoflistings
+\endgroup
+
+%%%%%%%%%%%%%%%%%%%
+% ACKNOWLEDGMENT
+% FILL IN / MODIFY
+%%%%%%%%%%%%%%%%%%%
+\begin{acknowledgmentpage}
+	Chtěl bych poděkovat především sit amet, consectetuer adipiscing elit. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue.
+\end{acknowledgmentpage} 
+%%%%%%%%%%%%%%%%%%%
+% ACKNOWLEDGMENT END
+%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%
+% DECLARATION
+% FILL IN / MODIFY
+%%%%%%%%%%%%%%%%%%%
+% INSTRUCTIONS
+% ENG: choose one of approved texts of the declaration. DO NOT CREATE YOUR OWN. Find the approved texts at https://courses.fit.cvut.cz/SFE/download/index.html#_documents (document Declaration for FT in English)
+% CZE/SLO: Vyberte jedno z fakultou schvalenych prohlaseni. NEVKLADEJTE VLASTNI TEXT. Schvalena prohlaseni najdete zde: https://courses.fit.cvut.cz/SZZ/dokumenty/index.html#_dokumenty (prohlášení do ZP)
+\begin{declarationpage}
+FILL IN ACCORDING TO THE INSTRUCTIONS.
+
+Vyplňte v souladu s pokyny.
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Pellentesque pretium lectus id turpis.
+\end{declarationpage}
+%%%%%%%%%%%%%%%%%%%
+% DECLARATION END
+%%%%%%%%%%%%%%%%%%%
+
+\printabstractpage
+
+%%%%%%%%%%%%%%%%%%%
+% SUMMARY
+% FILL IN / MODIFY
+% OR REMOVE ENTIRELY (upon agreement with your supervisor)
+% (apropriate to remove in most theses)
+%%%%%%%%%%%%%%%%%%%
+\begin{summarypage}
+\section*{Motivace}
+
+\lipsum[1][1-8]
+
+\section*{Cíl práce}
+
+\lipsum[2][1-6]
+
+\section*{Postup}
+
+\lipsum[3]
+
+\section*{Výsledky práce}
+
+\lipsum[2]
+
+\section*{Závěr}
+
+\lipsum[1][1-8] Lorem lorem lorem.
+\end{summarypage}
+%%%%%%%%%%%%%%%%%%%
+% SUMMARY END
+%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%
+% ABBREVIATIONS
+% FILL IN / MODIFY
+% OR REMOVE ENTIRELY
+%%%%%%%%%%%%%%%%%%%
+\chapter{Seznam zkratek}
+	
+\begin{tabular}{rl}
+DFA & Deterministic Finite Automaton\\
+FA & Finite Automaton\\
+LPS & Labelled Prüfer Sequence\\
+NFA & Nondeterministic Finite Automaton\\
+NPS & Numberef Prüfer Sequence\\
+TPA & Tree Paths Automaton\\
+TSPA & Tree String Paths Subsequences Automaton\\
+XML & Extensible Markup Language\\
+XPath & XML Path Language\\
+XSLT & eXtensible Stylesheet Language Transformations\\
+W3C & World Wide Web Consortium
+\end{tabular}
+%%%%%%%%%%%%%%%%%%%
+% ABBREVIATIONS END
+%%%%%%%%%%%%%%%%%%%
+
+\mainmatter
+\mainmatterinit
+
+%%%%%%%%%%%%%%%%%%%
+% THE THESIS
+% MODIFY ANYTHING BELOW THIS LINE
+%%%%%%%%%%%%%%%%%%%
+\include{text}
+
+\appendix
+\appendixinit
+
+\include{appendix}
+
+\backmatter
+
+\bibliography{bib-database}
+
+\include{medium}
+
+\end{document}
