@@ -1,5 +1,6 @@
 *.aux
 *.bbl
+*.bcf
 *.blg
 *.dvi
 *.fdb_latexmk
@@ -8,6 +9,7 @@
 *.log
 *.lol
 *.lot
+_minted-ctufit-thesis/
 *.out
 *.pdf
 *.ps

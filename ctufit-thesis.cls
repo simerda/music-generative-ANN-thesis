@@ -106,7 +106,7 @@
 \DeclareRobustCommand{\ctufitdeclarationdate}[1]{
 	\def\thectufitdeclarationdate{#1}
 }
-\DeclareRobustCommand{\ctufitabstraktCZE}[1]{
+\DeclareRobustCommand{\ctufitabstractCZE}[1]{
 	\def\thectufitabstrakt{#1}
 }
 \DeclareRobustCommand{\ctufitabstractENG}[1]{
@@ -475,4 +475,21 @@
 
 {\noindent\color{heading}\bfseries Keywords\hspace{1em}}{\thectufitkeywords}
 \end{abstractpage}
+}
+
+\AtBeginDocument{%
+	\@ifpackageloaded{listings}{%
+		\DeclareRobustCommand{\lstlistingname}{\thectufitlistinglabel}%
+		\DeclareRobustCommand{\lstlistlistingname}{\thectufitlollabel}%
+		\lstset{basicstyle=\small\ttfamily,keywordstyle=\bfseries,%
+				backgroundcolor=\color{backgroundgray},%
+				frame=single,framerule=0pt,xleftmargin=\fboxsep,xrightmargin=\fboxsep}%
+	}{}%
+	\@ifpackageloaded{minted}{%
+		\DeclareRobustCommand{\listingscaption}{\thectufitlistinglabel}%
+		\DeclareRobustCommand{\listoflistingscaption}{\thectufitlollabel}%
+		\usemintedstyle{bw}%
+		\setminted{bgcolor=backgroundgray}%
+		\setmintedinline{bgcolor={}}
+	}{}%
 }
