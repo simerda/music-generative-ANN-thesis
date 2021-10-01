@@ -1,3 +1,4 @@
+% Do not forget to include Introduction
 %---------------------------------------------------------------
 \chapter{Ut enim ad minim veniam}
 %---------------------------------------------------------------
@@ -167,6 +168,11 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
         return 0;
     }
 \end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% alternative using package minted for source highlighting
+% package minted requires execution with `-shell-escape'
+% e.g., `xelatex -shell-escape ctufit-thesis.tex'
 % \begin{listing}
 % \caption{Zbytečný kód}\label{list:8-6}
 % \begin{minted}{C}
@@ -180,7 +186,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 %     }
 % \end{minted}
 % \end{listing}
-
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. Aenean id metus id velit ullamcorper pulvinar. Fusce wisi. Integer lacinia. Aliquam id dolor. Pellentesque pretium lectus id turpis. Suspendisse sagittis ultrices augue. In laoreet, magna id viverra tincidunt, sem odio bibendum justo, vel imperdiet sapien wisi sed libero. Sed ac dolor sit amet purus malesuada congue. \cite{Crochemore2002}
 
 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci. Duis viverra diam non justo. Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien. Duis condimentum augue id magna semper rutrum. Aliquam ornare wisi eu metus. Fusce aliquam vestibulum ipsum. Vivamus ac leo pretium faucibus. \cite{Motwani2014}
@@ -205,15 +211,15 @@ Nulla est. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutp
 
 \subsubsection{Class aptent taciti}
 
-\begin{definition}%[Class aptent]
+\begin{definition}[Optional label]
 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
 \end{definition}
 
-\begin{example}%[Class aptent]
+\begin{example}
 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
 \end{example}
 
-\begin{theorem}%[Class aptent]
+\begin{theorem}
 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
 \end{theorem}
 
@@ -221,23 +227,23 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
 Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
 \end{proof}
 
-\begin{corollary}%[Class aptent]
+\begin{corollary}
 Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
 \end{corollary}
 
-\begin{proposition}%[Class aptent]
+\begin{proposition}
 Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
 \end{proposition}
 
-\begin{note}%[Class aptent]
+\begin{note}
 Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
 \end{note}
 
-\begin{remark}%[Class aptent]
+\begin{remark}
 Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
 \end{remark}
 
-\begin{lemma}%[Class aptent]
+\begin{lemma}
 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
 \end{lemma}
 
