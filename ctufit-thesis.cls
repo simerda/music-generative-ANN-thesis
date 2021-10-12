@@ -50,12 +50,12 @@
 	\PassOptionsToPackage{english,main=slovak}{babel}
 	\def\@ctufitlang{S}
 }
-\ExecuteOptions{a4paper,unicode,twoside}
+\ExecuteOptions{unicode,twoside}
 \ProcessOptions
 
 % main declarations, loading files
 
-\LoadClass{book}[2020/04/10]
+\LoadClass[a4paper]{book}[2020/04/10]
 \RequirePackage{babel}[2021/03/03]
 \RequirePackage[bottom=4cm,footskip=4em]{geometry}[2020/01/02] %page layout
 \RequirePackage{setspace}[2011/12/19] %line spacing in title page
@@ -140,7 +140,7 @@
 
 \DeclareRobustCommand{\thectufitlollabel}{\if\@ctufitlang C{Seznam v{\'y}pis{\r u} k{\'o}du}\else\if\@ctufitlang S{Zoznam v{\'y}pisov k{\'o}du}\else{List of code listings}\fi\fi}
 
-\DeclareRobustCommand{\thectufitdeclarationlabel{\if\@ctufitlang C{Prohlášení}\else\if\@ctufitlang E{Declaration}\else{Vyhlásenie}\fi\fi}}
+\DeclareRobustCommand{\thectufitdeclarationlabel}{\if\@ctufitlang C{Prohlášení}\else\if\@ctufitlang E{Declaration}\else{Vyhlásenie}\fi\fi}
 
 
 \DeclareRobustCommand{\thectufitcopyrighttext}{\if\@ctufitlang C{Tato pr{\' a}ce vznikla jako {\v s}koln{\' i} d{\' i}lo na {\v C}esk{\' e}m vysok{\' e}m u{\v c}en{\' i} technick{\' e}m v~Praze, Fakult{\v e} informa{\v c}n{\' i}ch technologi{\' i}. Pr{\' a}ce je chr{\' a}n{\v e}na pr{\' a}vn{\' i}mi p{\v r}edpisy a mezin{\' a}rodn{\' i}mi {\' u}mluvami o~pr{\' a}vu autorsk{\' e}m a pr{\' a}vech souvisej{\' i}c{\' i}ch s~pr{\' a}vem autorsk{\' y}m. K~jej\'\i{}mu u\v zit\'\i{}, s~v\'yjimkou bez\'uplatn\'ych z\'akonn\'ych licenc\'\i{} a nad r\'amec opr\'avn\v en\'\i{} uveden\'ych v~Prohl\'a\v sen\'\i{} na p\v redchoz\'\i{} stran\v e, je nezbytn\'y souhlas autora.}\else\if\@ctufitlang S{T\'ato pr\'aca vznikla ako \v skolsk\'e dielo na  FIT \v CVUT v Prahe. Pr\'aca je chr\'anen\'a medzin\'arodn\'ymi predpismi a zmluvami o autorskom pr\'ave a pr\'avach s\'uvisiacich s autorsk\'ym pr\'avom. Na jej vyu\v zitie, s~v\'ynimkou bezplatn\'ych z\'akonn\'ych licenci\'\i, je nutn\'y s\'uhlas autora.}\else{This thesis is school work as defined by Copyright Act of the Czech Republic. It has been submitted at Czech Technical University in Prague, Faculty of Information Technology. The thesis is protected by the Copyright Act and its usage without author's permission is prohibited (with exceptions defined by the Copyright Act).}\fi\fi}
