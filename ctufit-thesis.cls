@@ -477,6 +477,8 @@
 \end{abstractpage}
 }
 
+\newenvironment{chapterabstract}{\hfill\begin{minipage}{\dimexpr\textwidth-0.5cm}\itshape}{\end{minipage}\vskip 0.5cm\par\@afterindentfalse\@afterheading}
+
 \AtBeginDocument{%
 	\@ifpackageloaded{listings}{%
 		\DeclareRobustCommand{\lstlistingname}{\thectufitlistinglabel}%
