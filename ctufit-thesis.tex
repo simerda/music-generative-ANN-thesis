@@ -92,6 +92,23 @@
 \addbibresource{text/bib-database.bib}
 \usepackage{listings} % typesetting of sources
 % \usepackage{minted} % typesetting of sources
+
+%theorems, definitions, etc.
+\theoremstyle{plain}
+\newtheorem{theorem}{Věta}
+\newtheorem{lemma}[theorem]{Tvrzení}
+\newtheorem{corollary}[theorem]{Důsledek}
+\newtheorem{proposition}[theorem]{Návrh}
+\newtheorem{definition}[theorem]{Definice}
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Příklad}
+\theoremstyle{remark}
+\newtheorem{note}[theorem]{Poznámka}
+\newtheorem*{note*}{Poznámka}
+\newtheorem{remark}[theorem]{Pozorování}
+\newtheorem*{remark*}{Pozorování}
+\numberwithin{theorem}{chapter}
+%theorems, definitions, etc. END
 %%%%%%%%%%%%%%%%%%%%%%
 % DEMO CONTENTS SETTINGS END
 %%%%%%%%%%%%%%%%%%%%%%
