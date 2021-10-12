@@ -329,7 +329,7 @@
 \newenvironment{declaration}{}
 
 % acknowledgment page
-\newenvironment{acknowledgmentpage}{\frontchapternotprinted{Poděkování}
+\newenvironment{acknowledgmentpage}{\frontchapternotprinted{\if\@ctufitlang C{Poděkování}\else\if\@ctufitlang E{Acknowledgments}\else{Poďakovanie}\fi\fi}
 ~
 \vfill
 \hskip 0cm \begin{minipage}{0.7\textwidth}\itshape}{
@@ -341,11 +341,11 @@
 % acknowledgment page END
 
 % declaration page
-\newenvironment{declarationpage}{\frontchapternotprinted{Prohlášení}
+\newenvironment{declarationpage}{\frontchapternotprinted{\if\@ctufitlang C{Prohlášení}\else\if\@ctufitlang E{Declaration}\else{Vyhlásenie}\fi\fi}
 ~
 \vfill
 
-  {{\frontchapterfont\begin{flushright}{\color{heading}Prohlášení}\end{flushright}}}%
+  {{\frontchapterfont\begin{flushright}{\color{heading}\if\@ctufitlang C{Prohlášení}\else\if\@ctufitlang E{Declaration}\else{Vyhlásenie}\fi\fi}\end{flushright}}}%
   \bigskip
   \noindent\ignorespaces
 }{\vskip 1cm
@@ -358,7 +358,7 @@
 }{}
 % abstract page END
 
-\newenvironment{summarypage}{\chapter{Shrnutí}
+\newenvironment{summarypage}{\chapter{\if\@ctufitlang C{Shrnutí}\else\if\@ctufitlang E{Summary}\else{Zhrnutie}\fi\fi}
 \setlength{\columnsep}{1cm}
 \begin{multicols}{2}\small
 }{\end{multicols}}
@@ -376,7 +376,7 @@
 {\chapter} % command
 [display] % shape
 { \LARGE \bfseries \raggedleft} % format
-{ \textcolor{headbackgroundgray}{{\titlerule*[1pc]{\rule{0.25em}{0.25em}}}} \hspace{0.5ex} \color{black} Kapitola \thechapter } % label
+{ \textcolor{headbackgroundgray}{{\titlerule*[1pc]{\rule{0.25em}{0.25em}}}} \hspace{0.5ex} \color{black} \chaptername~\thechapter } % label
 {-0.3cm} % sep
 {\color{heading} \Huge \vskip 0.5cm} % before-code
 [\vskip 1cm] % after-code
@@ -404,7 +404,7 @@
 {\chapter} % command
 [display] % shape
 { \LARGE \bfseries \raggedleft} % format
-{ \textcolor{headbackgroundgray}{{\titlerule*[1pc]{\rule{0.25em}{0.25em}}}} \hspace{0.5ex} \color{black} Příloha \thechapter } % label
+{ \textcolor{headbackgroundgray}{{\titlerule*[1pc]{\rule{0.25em}{0.25em}}}} \hspace{0.5ex} \color{black} \appendixname~\thechapter } % label
 {-0.3cm} % sep
 {\color{heading} \Huge \vskip 0.5cm} % before-code
 [\vskip 1cm] % after-code
