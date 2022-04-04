@@ -134,7 +134,7 @@
 
 \DeclareRobustCommand{\thectufitcitationlabel}{\if\@ctufitlang C{Odkaz na tuto pr{\' a}ci}\else\if\@ctufitlang S{Odkaz na t\'uto pr{\' a}cu}\else{Citation of this thesis}\fi\fi}
 
-\DeclareRobustCommand{\thectufitallrightsreservedlabel}{\if\@ctufitlang C{Odkaz na tuto pr{\' a}ci}\else\if\@ctufitlang S{Odkaz na t\'uto pr{\' a}cu}\else{Citation of this thesis}\fi\fi}
+\DeclareRobustCommand{\thectufitallrightsreservedlabel}{\if\@ctufitlang C{V{\v s}echna pr{\' a}va vyhrazena.}\else\if\@ctufitlang S{V{\v s}etky pr{\' a}va vyhraden\'e.}\else{All rights reserved.}\fi\fi}
 
 \DeclareRobustCommand{\thectufitlistinglabel}{\if\@ctufitlang C{V{\'y}pis k{\'o}du}\else\if\@ctufitlang S{V{\'y}pis k{\'o}du}\else{Code listing}\fi\fi}
 
