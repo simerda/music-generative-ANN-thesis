@@ -29,24 +29,50 @@
 % language: czech/english/slovak
 % thesis type: bachelor/master/dissertation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[czech,bachelor,unicode]{ctufit-thesis}
+\documentclass[english,bachelor,unicode]{ctufit-thesis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FILL IN THIS INFORMATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ctufittitle{Název příkladné závěrečné práce} % replace with the title of your thesis
-\ctufitauthorfull{Bc. Jiří Nebozíz} % replace with your full name (first name(s) and then family name(s) / surname(s)) including academic degrees
-\ctufitauthorsurnames{Nebozíz} % replace with your surname(s) / family name(s)
-\ctufitauthorgivennames{Jiří} % replace with your first name(s) / given name(s)
-\ctufitsupervisor{doc.\,Ing.\,Damien Zlo,\,Ph.D.} % replace with name of your supervisor/advisor (include academic degrees)
-\ctufitdepartment{Katedra teoretické informatiky} % replace with the department of your defence
-\ctufityear{2021} % replace with the year of your defence
-\ctufitdeclarationplace{Praze} % replace with the place where you sign the declaration
+\ctufittitle{Generation of music using neural networks} % replace with the title of your thesis
+\ctufitauthorfull{Jan Šimerda} % replace with your full name (first name(s) and then family name(s) / surname(s)) including academic degrees
+\ctufitauthorsurnames{Šimerda} % replace with your surname(s) / family name(s)
+\ctufitauthorgivennames{Jan} % replace with your first name(s) / given name(s)
+\ctufitsupervisor{Mgr.\,Jan Tyl} % replace with name of your supervisor/advisor (include academic degrees)
+\ctufitdepartment{Department of Applied Mathematics} % replace with the department of your defence
+\ctufityear{2022} % replace with the year of your defence
+\ctufitdeclarationplace{Prague} % replace with the place where you sign the declaration
 \ctufitdeclarationdate{\today} % replace with the date of signature of the declaration
-\ctufitabstractCZE{Fill in abstract of this thesis in Czech language. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue.}
-\ctufitabstractENG{Fill in abstract of this thesis in English language. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue.}
-\ctufitkeywordsCZE{enter, commma, separated, list, of, keywords, in, CZECH}
-\ctufitkeywordsENG{enter, commma, separated, list, of, keywords, in, ENGLISH}
+\ctufitabstractCZE{
+    Tato bakalářská práce zkoumá využití umělých neuronových sítí v oblasti strojového generování hudby.
+    Zaměřili jsme se na využití technik používaných ve zpracování přirozeného jazyka založených na attention mechanismu.
+    Práce popisuje celý proces generování hudby od výběru dat, přes \textit{tokenizaci} (transformace hudby ze surových dat do formátu vhodného pro vybrané modely) až po trénování modelu.
+
+    % TODO: review, whether LSTM architecture should be kept
+    Použili jsme nejmodernější modely založené na \textit{Transformer} a \textit{LSTM} architekturách, běžně užívaných v NLP, abychom získali odpověď na otázku, jestli lze tyto modely, které mají skvělé výsledky v doménách generování textu a strojového překladu, použít také pro generování hudby.
+    Vyzkoušeli jsme také několik navrhovaných vylepšení Transformer modelu a attention mechanismu a porovnali je s původním Transformer modelem.
+
+    Pro trénování neuronových sítí jsme využili datasety MAESTRO a GiantMIDI, které obsahují stovky hodin klasických klavírních skladeb.
+    Skladby použité pro trénování modelů jsou v symbolické MIDI reprezentaci.
+
+    Zjistili jsme, že \ldots % TODO: sum up achieved results
+}
+\ctufitabstractENG{
+    This thesis aims at using artificial neural networks in machine music generation.
+    We emphasized using natural language processing techniques based on attention mechanisms.
+    The work describes the whole music generation pipeline from data selection through \textit{tokenization} (transforming music from raw data into a format digestible by selected models) up to model training.
+
+    % TODO: review, whether LSTM architecture should be kept
+    We used state-of-the-art models based on the \textit{Transformer} and the \textit{LSTM} architectures commonly used in NLP to answer whether these well-performing models in domains like text generation or text translation can also be used to generate music.
+    We also tested some proposed enhancements to the Transformer model and the attention mechanism and compared them to the vanilla Transformer model.
+
+    We used the MAESTRO and the GiantMIDI datasets for the training process that contain hundreds of hours of classical piano pieces.
+    The songs used for training the models are in symbolic MIDI representation.
+
+    We found out that \ldots % TODO: sum up achieved results
+}
+\ctufitkeywordsCZE{generování hudby, MIDI, transformers, zpracování přirozeného jazyka, umělé neuronové sítě, Tensorflow, Python}
+\ctufitkeywordsENG{music generation, MIDI, transformers, natural language processing, artificial neural networks, Tensorflow, Python}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END FILL IN
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -58,10 +84,10 @@
 
 \RequirePackage{iftex}[2020/03/06]
 \iftutex % XeLaTeX and LuaLaTeX
-    \RequirePackage{ellipsis}[2020/05/22] %ellipsis workaround for XeLaTeX
+\RequirePackage{ellipsis}[2020/05/22] %ellipsis workaround for XeLaTeX
 \else
-    \RequirePackage[utf8]{inputenc}[2018/08/11] %this file encoding
-    \RequirePackage{lmodern}[2009/10/30] % vector flavor of Computer Modern font
+\RequirePackage[utf8]{inputenc}[2018/08/11] %this file encoding
+\RequirePackage{lmodern}[2009/10/30] % vector flavor of Computer Modern font
 \fi
 
 % hyperlinks
@@ -73,7 +99,6 @@
 \RequirePackage{pdfpages}[2020/01/28]
 
 \setcounter{secnumdepth}{4} % numbering sections; 4: subsubsection
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -113,27 +138,27 @@
 % DEMO CONTENTS SETTINGS END
 %%%%%%%%%%%%%%%%%%%%%%
 
-\begin{document} 
-\frontmatter\frontmatterinit % do not remove these two commands
+\begin{document}
+    \frontmatter\frontmatterinit % do not remove these two commands
 
-\includepdf{assignment-include.pdf} % replace that file with your thesis assignment provided by study office
+    \includepdf{assignment-include.pdf} % replace that file with your thesis assignment provided by study office
 
-\thispagestyle{empty}\cleardoublepage\maketitle % do not remove these three commands
+    \thispagestyle{empty}\cleardoublepage\maketitle % do not remove these three commands
 
-\imprintpage % do not remove this command
+    \imprintpage % do not remove this command
 
-\tableofcontents % do not remove this command
+    \tableofcontents % do not remove this command
 %%%%%%%%%%%%%%%%%%%%%%
 % list of other contents: figures, tables, code listings, algorithms, etc.
 % add/remove commands accordingly
 %%%%%%%%%%%%%%%%%%%%%%
-\listoffigures % list of figures
-\begingroup
-\let\clearpage\relax
-\listoftables % list of tables
-\lstlistoflistings % list of source code listings generated by the listings package
+    \listoffigures % list of figures
+    \begingroup
+    \let\clearpage\relax
+    \listoftables % list of tables
+    \lstlistoflistings % list of source code listings generated by the listings package
 % \listoflistings % list of source code listings generated by the minted package
-\endgroup
+    \endgroup
 %%%%%%%%%%%%%%%%%%%%%%
 % list of other contents END
 %%%%%%%%%%%%%%%%%%%%%%
@@ -143,9 +168,9 @@
 % FILL IN / MODIFY
 % This is a place to thank people for helping you. It is common to thank your supervisor.
 %%%%%%%%%%%%%%%%%%%
-\begin{acknowledgmentpage}
-	Chtěl bych poděkovat především sit amet, consectetuer adipiscing elit. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue.
-\end{acknowledgmentpage} 
+    \begin{acknowledgmentpage}
+        I would like to thank \ldots % TODO: write acknowledgement
+    \end{acknowledgmentpage}
 %%%%%%%%%%%%%%%%%%%
 % ACKNOWLEDGMENT END
 %%%%%%%%%%%%%%%%%%%
@@ -158,16 +183,21 @@
 % INSTRUCTIONS
 % ENG: choose one of approved texts of the declaration. DO NOT CREATE YOUR OWN. Find the approved texts at https://courses.fit.cvut.cz/SFE/download/index.html#_documents (document Declaration for FT in English)
 % CZE/SLO: Vyberte jedno z fakultou schvalenych prohlaseni. NEVKLADEJTE VLASTNI TEXT. Schvalena prohlaseni najdete zde: https://courses.fit.cvut.cz/SZZ/dokumenty/index.html#_dokumenty (prohlášení do ZP)
-\begin{declarationpage}
-FILL IN ACCORDING TO THE INSTRUCTIONS. VYPLŇTE V SOULADU S POKYNY. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Pellentesque pretium lectus id turpis.
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Pellentesque pretium lectus id turpis.
-\end{declarationpage}
+    \begin{declarationpage}
+        I hereby declare that the presented thesis is my own work and that I have cited all
+        sources of information in accordance with the Guideline for adhering to ethical
+        principles when elaborating an academic final thesis.\\
+        I acknowledge that my thesis is subject to the rights and obligations stipulated by the
+        Act No. 121/2000 Coll., the Copyright Act, as amended, in particular that the Czech
+        Technical University in Prague has the right to conclude a license agreement on the
+        utilization of this thesis as a school work under the provisions of Article 60 (1) of the
+        Act
+    \end{declarationpage}
 %%%%%%%%%%%%%%%%%%%
 % DECLARATION END
 %%%%%%%%%%%%%%%%%%%
 
-\printabstractpage % do not remove this command
+    \printabstractpage % do not remove this command
 
 %%%%%%%%%%%%%%%%%%%
 % SUMMARY
@@ -175,27 +205,27 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sagittis hen
 % OR REMOVE ENTIRELY (upon agreement with your supervisor)
 % (appropriate to remove in most theses)
 %%%%%%%%%%%%%%%%%%%
-\begin{summarypage}
-\section*{Summary section}
-
-\lipsum[1][1-8]
-
-\section*{Summary section}
-
-\lipsum[2][1-6]
-
-\section*{Summary section}
-
-\lipsum[3]
-
-\section*{Summary section}
-
-\lipsum[2]
-
-\section*{Summary section}
-
-\lipsum[1][1-8] Lorem lorem lorem.
-\end{summarypage}
+%    \begin{summarypage}
+%        \section*{Summary section}
+%
+%        \lipsum[1][1-8]
+%
+%        \section*{Summary section}
+%
+%        \lipsum[2][1-6]
+%
+%        \section*{Summary section}
+%
+%        \lipsum[3]
+%
+%        \section*{Summary section}
+%
+%        \lipsum[2]
+%
+%        \section*{Summary section}
+%
+%        \lipsum[1][1-8] Lorem lorem lorem.
+%    \end{summarypage}
 %%%%%%%%%%%%%%%%%%%
 % SUMMARY END
 %%%%%%%%%%%%%%%%%%%
@@ -206,40 +236,40 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sagittis hen
 % OR REMOVE ENTIRELY
 % List the abbreviations in lexicography order.
 %%%%%%%%%%%%%%%%%%%
-\chapter{Seznam zkratek}
-	
-\begin{tabular}{rl}
-DFA & Deterministic Finite Automaton\\
-FA & Finite Automaton\\
-LPS & Labelled Prüfer Sequence\\
-NFA & Nondeterministic Finite Automaton\\
-NPS & Numbered Prüfer Sequence\\
-XML & Extensible Markup Language\\
-XPath & XML Path Language\\
-XSLT & eXtensible Stylesheet Language Transformations\\
-W3C & World Wide Web Consortium
-\end{tabular}
-%%%%%%%%%%%%%%%%%%%
+
+
+    \chapter{Lists of abbreviations}\label{ch:lists-of-abbreviations}
+
+    \begin{tabular}{rl}
+        AI      & Artificial Intelligence                                       \\
+        GRU     & Gated Recurrent Unit                                          \\
+        LSTM    & Long Short-Term Memory                                        \\
+        MAESTRO & MIDI and Audio Edited for Synchronous TRacks and Organization \\
+        MIDI    & Musical Instrument Digital Interface                          \\
+        NLP     & Natural Language Processing                                   \\
+        RNN     & Recurrent Neural Network
+    \end{tabular}
+%%%%%%%%%%%%%%%%%%%ß
 % ABBREVIATIONS END
 %%%%%%%%%%%%%%%%%%%
 
-\mainmatter\mainmatterinit % do not remove these two commands
+    \mainmatter\mainmatterinit % do not remove these two commands
 
 %%%%%%%%%%%%%%%%%%%
 % THE THESIS
 % MODIFY ANYTHING BELOW THIS LINE
 %%%%%%%%%%%%%%%%%%%
 
-\include{text/text} % include `text.tex' from `text/' subdirectory
+    \include{text/text} % include `text.tex' from `text/' subdirectory
 
-\appendix\appendixinit % do not remove these two commands
+    \appendix\appendixinit % do not remove these two commands
 
-\include{text/appendix} % include `appendix.tex' from `text/' subdirectory
+    \include{text/appendix} % include `appendix.tex' from `text/' subdirectory
 
-\backmatter % do not remove this command
+    \backmatter % do not remove this command
 
-\printbibliography % print out the BibLaTeX-generated bibliography list
+    \printbibliography % print out the BibLaTeX-generated bibliography list
 
-\include{text/medium} % include `medium.tex' from `text/' subdirectory
+    \include{text/medium} % include `medium.tex' from `text/' subdirectory
 
 \end{document}
