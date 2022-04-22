@@ -445,23 +445,23 @@
 
 \DeclareRobustCommand{\printabstractpage}{%
 \begin{abstractpage}
-\begin{abstrakt}% Enter abstract in CZECH.
-\thectufitabstrakt
-\end{abstrakt}
-
-\vskip 0.5cm
-
-{\noindent\color{heading}\bfseries Klíčová slova\hspace{1em}}{\thectufitklicovaslova}
-
-\vskip 1cm
-
-\begin{abstract}% Enter abstract in ENGLISH.
+\begin{abstract}% Enter abstract in CZECH.
 \thectufitabstract
 \end{abstract}
 
 \vskip 0.5cm
 
 {\noindent\color{heading}\bfseries Keywords\hspace{1em}}{\thectufitkeywords}
+
+\vskip 1cm
+
+\begin{abstrakt}% Enter abstract in ENGLISH.
+\thectufitabstrakt
+\end{abstrakt}
+
+\vskip 0.5cm
+
+{\noindent\color{heading}\bfseries Klíčová slova\hspace{1em}}{\thectufitklicovaslova}
 \end{abstractpage}
 }
 

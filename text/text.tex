@@ -1,7 +1,5 @@
-% Do not forget to include Introduction
+% Introduction
 %---------------------------------------------------------------
-% \chapter{Introduction}
-% uncomment the following line to create an unnumbered chapter
 \chapter*{Introduction}\label{ch:introduction}
 \addcontentsline{toc}{chapter}{Acknowledgments}
 \markboth{Introduction}{Introduction}
@@ -9,10 +7,10 @@
 \setcounter{page}{1}
 
 From the beginnings of modern humanity to this day and age, music has played an ever-present part in our lives.
-Up until the upswing of the computer era, music composing was carried out exclusively by humans.
+Up until the upswing of the computer era, music composing was carried out mainly by humans, though there were some experiments with algorithmic music generation even before the first computer\footnote{The musical piece was composed using defined musical segments selected by dice roll~\cite{music-generation-history}.}.
 However, after scientists developed the first computers, people became interested in whether computers could also perform complex and creative tasks like self-driving or music generation.
 
-\textit{Artificial intelligence} has crept into our lives more than ever before in recent years.
+Lately, \textit{artificial} intelligence has crept into our lives more than ever before.
 From fraud detection, personalization, and content recommendation to image enhancement and facial recognition, AI helped drive all those things forward.
 The inventions in artificial intelligence and machine learning techniques, along with advances in computer hardware performance, helped tremendously with the ability to perform complex tasks like those mentioned above.
 
@@ -24,3 +22,9 @@ Specifically, this work focuses on leveraging neural network architectures used 
 The goal of the practical part of this work is to create a functioning music generation model that would be able to generate songs from scratch or generate continuation for an existing song.
 This solution could help music composers with the creative part of music composition.
 
+% Music theory
+%---------------------------------------------------------------
+
+
+\chapter{Music theory}\label{ch:music-theory}
+\input{text/chapters/music-theory.tex}
