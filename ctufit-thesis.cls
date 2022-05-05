@@ -356,7 +356,7 @@
 % declaration page END
 
 % abstract page
-\newenvironment{abstractpage}{\frontchapternotprinted{Abstrakt}
+\newenvironment{abstractpage}{\frontchapternotprinted{Abstract}
 }{}
 % abstract page END
 
