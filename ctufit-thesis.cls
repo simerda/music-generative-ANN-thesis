@@ -59,7 +59,7 @@
 \RequirePackage{babel}[2021/03/03]
 \RequirePackage[bottom=4cm,footskip=4em]{geometry}[2020/01/02] %page layout
 \RequirePackage{setspace}[2011/12/19] %line spacing in title page
-\RequirePackage{xcolor}[2016/05/11]
+\RequirePackage[dvipsnames]{xcolor}[2016/05/11]
 \RequirePackage[labelsep=space,singlelinecheck=false,font={up,small},labelfont={sf,bf}]{caption}[2020/05/30]
 \RequirePackage{fancyhdr}[2019/01/31]
 \RequirePackage{multicol}[2019/12/09] % summary page
