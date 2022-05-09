@@ -176,7 +176,7 @@
 	{\small
 			\noindent \thectufituniversity \\
 		\noindent \thectufitfaculty \\
-	\noindent \textcopyright{} \thectufityear{} \thectufitauthorfull. \thectufitallrightsreservedlabel.\\
+	\noindent \textcopyright{} \thectufityear{} \thectufitauthorfull. \thectufitallrightsreservedlabel\\
 		\noindent \textit{\thectufitcopyrighttext}
 	
 	\vspace{1em}
