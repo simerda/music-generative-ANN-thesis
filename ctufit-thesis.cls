@@ -57,7 +57,7 @@
 
 \LoadClass[a4paper]{book}[2020/04/10]
 \RequirePackage{babel}[2021/03/03]
-\RequirePackage[left=3.8cm,right=2.5cm,bottom=4cm,footskip=4em]{geometry}[2020/01/02] %page layout
+\RequirePackage[left=2.8cm,right=3.5cm,bottom=4cm,footskip=4em]{geometry}[2020/01/02] %page layout
 \RequirePackage{setspace}[2011/12/19] %line spacing in title page
 \RequirePackage[dvipsnames]{xcolor}[2016/05/11]
 \RequirePackage[labelsep=space,singlelinecheck=false,font={up,small},labelfont={sf,bf}]{caption}[2020/05/30]
