@@ -48,11 +48,10 @@
     Zaměřili jsme se na využití technik používaných ve zpracování přirozeného jazyka založených na attention mechanismu.
     Práce popisuje celý proces generování hudby od výběru dat, přes \textit{tokenizaci} (transformace hudby ze surových dat do formátu vhodného pro vybrané modely) až po trénování modelu.
 
-    % TODO: review, whether LSTM architecture should be kept
-    Použili jsme nejmodernější modely založené na \textit{Transformer} a \textit{LSTM} architekturách, běžně užívaných v NLP, abychom získali odpověď na otázku, jestli lze tyto modely, které mají skvělé výsledky v doménách generování textu a strojového překladu, použít také pro generování hudby.
+    Použili jsme nejmodernější modely založené na \textit{Transformer} architektuře, běžně užívaných v NLP, abychom získali odpověď na otázku, jestli lze tyto modely, které mají skvělé výsledky v doménách generování textu a strojového překladu, použít také pro generování hudby.
     Vyzkoušeli jsme také několik navrhovaných vylepšení Transformer modelu a attention mechanismu a porovnali je s původním Transformer modelem.
 
-    Pro trénování neuronových sítí jsme využili datasety MAESTRO a GiantMIDI, které obsahují stovky hodin klasických klavírních skladeb.
+    Pro trénování neuronových sítí jsme využili dataset MAESTRO, který obsahuje stovky hodin klasických klavírních skladeb.
     Skladby použité pro trénování modelů jsou v symbolické MIDI reprezentaci.
 
     Zjistili jsme, že \ldots % TODO: sum up achieved results
@@ -62,17 +61,16 @@
     We emphasized using natural language processing techniques based on attention mechanisms.
     The work describes the whole music generation pipeline from data selection through \textit{tokenization} (transforming music from raw data into a format digestible by selected models) up to model training.
 
-    % TODO: review, whether LSTM architecture should be kept
-    We used state-of-the-art models based on the \textit{Transformer} and the \textit{LSTM} architectures commonly used in NLP to answer whether these well-performing models in domains like text generation or text translation can also be used to generate music.
+    We used state-of-the-art models based on the \textit{Transformer} architecture commonly used in NLP to answer whether these well-performing models in domains like text generation or text translation can also be used to generate music.
     We also tested some proposed enhancements to the Transformer model and the attention mechanism and compared them to the vanilla Transformer model.
 
-    We used the MAESTRO and the GiantMIDI datasets for the training process that contain hundreds of hours of classical piano pieces.
+    We used the MAESTRO dataset for the training process that contains hundreds of hours of classical piano pieces.
     The songs used for training the models are in symbolic MIDI representation.
 
     We found out that \ldots % TODO: sum up achieved results
 }
-\ctufitkeywordsCZE{generování hudby, MIDI, transformers, zpracování přirozeného jazyka, umělé neuronové sítě, Tensorflow, Python}
-\ctufitkeywordsENG{music generation, MIDI, transformers, natural language processing, artificial neural networks, Tensorflow, Python}
+\ctufitkeywordsCZE{generování hudby, MIDI, transformers, zpracování přirozeného jazyka, umělé neuronové sítě, PyTorch, Python}
+\ctufitkeywordsENG{music generation, MIDI, transformers, natural language processing, artificial neural networks, PyTorch, Python}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END FILL IN
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

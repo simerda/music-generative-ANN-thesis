@@ -94,7 +94,6 @@ Following is the formula for \textit{Multi-Head Attention}:
 
 The projections are parameter matrices $W^Q_i \in \mathbb{R}^{d_{\text{model}} \times d_k}$, $W^K_i \in \mathbb{R}^{d_{\text{model}} \times d_k}$, $W^V_i \in \mathbb{R}^{d_{\text{model}} \times d_v}$, and $W^O \in \mathbb{R}^{hd_v \times d_{\text{model}}}$.
 
-
 \subsection{Use of Attention inside the Transformer}\label{subsec:use-of-attention-inside-the-transformer}
 
 Multi-head attention is used in three different places inside the Transformer.
@@ -111,6 +110,7 @@ This is implemented inside the scaled dot-product attention by masking out all f
     \caption{~High-level depiction of self-Attention~\cite{illustrated-transformer}}\label{fig:self-attention}
 \end{figure}
 
+
 \section{Feed-forward networks}\label{sec:feed-forward-networks}
 
 Aside from attention sub-layers, each layer in our encoder and decoder module contains a \textit{fully connected feed-forward} network applied to each position separately and identically~\cite{attention-is-all-you-need}.
@@ -120,12 +120,14 @@ The operation composes of two linear transformations with a ReLU activation in b
 \]
 The input and output dimensions are $d_{model} = 512$, and the inner-layer has dimensionality $d_{ff} = 2048$~\cite{attention-is-all-you-need}.
 
+
 \section{Embeddings and Softmax}\label{sec:embeddings-and-softmax}
 
 The model uses learned \textit{embeddings}\footnote{\textit{``Embeddings are functions that map raw input data to low-dimensional vector representations, while preserving important semantic information about the inputs.''}\cite{embeddings}} to convert the input tokens and output tokens to vectors of the $d_{model}$ dimension.
 The \textit{softmax function} converts the decoder output to predicted \textit{next token probabilities}.
 The Transformer model shares the same weight matrix between the two embedding layers and the pre-softmax linear transformation.
 The weights are then multiplied by $d_{model}$ in the embedding layers.~\cite{attention-is-all-you-need}
+
 
 \section{Positional encoding}\label{sec:positional-encoding}
 
