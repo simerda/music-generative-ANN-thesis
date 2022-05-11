@@ -145,5 +145,71 @@ The \textit{wavelengths} create a geometric progression from $2\pi$ to $10000 \c
 The authors chose the sinusoidal version as they hypothesize it may allow the model to extrapolate to sequence lengths longer than the ones encountered during training.~\cite{attention-is-all-you-need}
 
 
+\section{Music Transformer}\label{sec:music-transformer}
+
+The Music Transformer is an \textit{auto-regressive} model based on the original Transformer.
+A decoder-based\footnote{the encoder blocks from the original Transformer model are not used} model introduces modifications to the attention mechanism to enable \textit{relative} positional encoding and decrease memory requirements.~\cite{music-transformer}
+
+\subsection{Relative positional encoding}\label{subsec:relative-positional-encoding}
+
+\textit{``Music has multiple dimensions along which relative differences arguably matter more than their absolute values;
+the two most prominent are timing and pitch.
+To capture such pairwise relations between representations, Shaw et al.\cite{relative-positions} introduce a relation-aware version of self-attention which they use successfully to modulate self-attention by the distance between two positions.
+We extend this approach to capture relative timing and''}~\cite{music-transformer}
+
+Shaw et al.\cite{relative-positions} introduced \textit{relative position encoding} as an alternative to the Transformer's absolute position realized via positional sinusoids.
+The relative positional encoding allows attention to be informed by how far two positions are apart in a given sequence.
+This is done by training a separated relative position embedding $E^r$ of shape $(H, L, D_h)$, embedding every possible pairwise distance $r = j_k - i_q$ between a query and key in position $i_q$ and $j_k$, respectively.
+The embeddings are then ordered by their distance from $-L + 1$ to $0$ (where $L$ means sequence length) and are learned separately for each head.
+In the ``Self-attention with relative position representations,''\cite{relative-positions} the relative embeddings interact with queries and form a $S^{rel}$;
+$L \times L$ dimensional logits\footnote{output layer values, before passed to softmax and becoming probabilities} matrix that modulates the attention probabilities for each head as follows\cite{music-transformer}:
+\[
+    \text{RelativeAttention} = \text{Softmax} \left( \frac{QK^T + S^{rel}}{sqrt{D_h}} \right) V
+\]
+The \textit{Music Transformer} uses the same approach to introduce \textit{relative distance} information to the attention computation while introducing a novel way of computing the $S^{rel}$, resulting in a significant memory footprint decrease.
+In the ``Self-attention with relative position representations,''\cite{relative-positions} there is an intermediate tensor $R$ of shape $(L, L, D_h)$, instantiated for each head containing the embeddings corresponding to the relative distances between all keys and queries.
+$Q$ is then reshaped to an $(L, 1, Dh)$ tensor and $S^{rel} = QR^T$.
+This burdens the embedding computation to $O(L^2 D)$ space complexity, restricting use for longer sequences.~\cite{music-transformer}
+
+\subsubsection{Efficient implementation}\label{subsubsec:efficient-implementation-of-relative-positional-encoding}
+
+The Music Transformer improves the implementation of relative attention by reducing its \textit{intermediate memory} requirement from $O(L^2 D)$ to $O(LD)$.
+The authors observed that all of the terms needed from $QR^T$ are already available by directly multiplying $Q$ with $Er$, the relative position embedding.
+After the $QE^{rT}$ is computed, the $(i_q , r)$ entry contains the dot product of the query in position $i_q$ with the embedding of relative distance $r$.
+Nevertheless, each relative logit $(i_q , j_k)$ in the matrix $S^{rel}$ from the previous equation should instead be the dot product of the query in position $i_q$ and the embedding of the relative distance $j_k - i_q$ , to match with the indexing in $QK^T$.
+Therefore, we need to ``skew'' $QE^{rT}$ to move the relative logits to their correct positions, as is illustrated in figure~\ref{fig:rel-attention-skew}.
+The time complexity for both methods is $O(L^2 D)$, but in practice, the authors report their method to be $6 \times$ faster at length $650$.~\cite{music-transformer}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{assets/rel-attention-skew}
+    \caption{~Relative global attention: the bottom row describes the memory-efficient ``skewing'' algorithm. Gray indicates masked or padded positions. Each color corresponds to a different relative distance.~\cite{music-transformer}}\label{fig:rel-attention-skew}
+\end{figure}
+
+\subsection{Relative local attention}\label{subsec:relative-local-attention}
+
+Local attention is not a new concept;
+it has been used, for example, in Wikipedia and image generation\cite{sumarizing-wikipedia}.
+It is realized by \textit{chunking} the input sequence into \textit{non-overlapping} blocks;
+each block attends to itself and the one before, as shown by the smaller thumbnail on the top right corner of figure~\ref{fig:relative-local-attention}.
+To extend the concept of relative attention to this local scope, we note that the right block has the same configuration as in the global case (see figure~\ref{fig:rel-attention-skew}) but smaller: $( \frac{L}{M} )^2$ (where $M$ refers the number of blocks, and $N$ be the resulting block length) instead of $L^2$.
+The left block is unmasked with relative indices going from $-1$ (top right) to $-2N + 1$ (bottom left).
+Because of that, the learned $E^r$ for the local scope has shape $(2N - 1, N)$.
+Like the global case, we first compute $QE^{rT}$ and afterward use the following procedure to ``skew'' it to have the same indexing as $QK^T$>, as shown in figure~\ref{fig:relative-local-attention}.
+The procedure is as follows\cite{music-transformer}:
+\begin{enumerate}
+    \item Pad dummy column vector with length $N$ after the rightmost column.
+    \item Flatten the matrix and then pad with a dummy row having length $N - 1$.
+    \item Reshape the matrix to the shape $(N + 1, 2N - 1)$.
+    \item Slice obtained matrix to retain only the first $N$ rows and last $N$ columns, resulting in a matrix of shape $(N, N)$.
+\end{enumerate}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{assets/relative-local-attention}
+    \caption{~Relative local attention: the thumbnail on the right shows the desired configuration for $S^{rel}$. The ``skewing'' procedure is shown from left to right.~\cite{music-transformer}}\label{fig:relative-local-attention}
+\end{figure}
 
 
