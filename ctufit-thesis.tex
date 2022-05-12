@@ -54,7 +54,7 @@
     Pro trénování neuronových sítí jsme využili dataset MAESTRO, který obsahuje stovky hodin klasických klavírních skladeb.
     Skladby použité pro trénování modelů jsou v symbolické MIDI reprezentaci.
 
-    Zjistili jsme, že \ldots % TODO: sum up achieved results
+    Zjistili jsme, že originální Transformer není pro tvorbu hudby vhodný a je lepší zvolit Music Transformer, který dosahuje přesnosti 25,13 \% na testovací sadě.
 }
 \ctufitabstractENG{
     This thesis aims at using artificial neural networks in machine music generation.
@@ -67,7 +67,7 @@
     We used the MAESTRO dataset for the training process that contains hundreds of hours of classical piano pieces.
     The songs used for training the models are in symbolic MIDI representation.
 
-    We found out that \ldots % TODO: sum up achieved results
+    We found out that the original Transformer is not suitable for the music generation task an it's better to use Music Transformer that reaches 25.13 \% accuracy on test set.
 }
 \ctufitkeywordsCZE{generování hudby, MIDI, transformers, zpracování přirozeného jazyka, umělé neuronové sítě, PyTorch, Python}
 \ctufitkeywordsENG{music generation, MIDI, transformers, natural language processing, artificial neural networks, PyTorch, Python}
@@ -112,12 +112,16 @@
 \usepackage{lipsum,tikz}
 \usepackage{csquotes}
 \usepackage[style=iso-numeric]{biblatex}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
 \addbibresource{text/bib-database.bib}
 \usepackage{listings} % typesetting of sources
 % \usepackage{minted} % typesetting of sources
 \usepackage{musicography} % musical symbols
 \usepackage{blkarray}
-\usepackage{amsmath} % matrices
+\usepackage{amsmath}
+\usepackage{booktabs} % matrices
+\usepackage{xevlna}
 
 %theorems, definitions, etc.
 \theoremstyle{plain}
@@ -164,7 +168,7 @@
 % This is a place to thank people for helping you. It is common to thank your supervisor.
 %%%%%%%%%%%%%%%%%%%
     \begin{acknowledgmentpage}
-        I would like to thank \ldots % TODO: write acknowledgement
+        I would like to thank my supervisor Mgr\., Jan Tyl for the leading of my bachelor's thesis and for his advices when working on this thesis.
     \end{acknowledgmentpage}
 %%%%%%%%%%%%%%%%%%%
 % ACKNOWLEDGMENT END

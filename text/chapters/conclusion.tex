@@ -5,10 +5,10 @@
 This thesis aimed to research \textit{music theory} basics and current approaches to music generation and state-of-the-art \textit{NLP} techniques.
 We then used this theoretical knowledge to design and implement a working \textit{machine learning} model that would be able to generate music from scratch or create a continuation for an existing part of a musical piece.
 
-Firstly we tried to use the \textit{Transformer}\cite{attention-is-all-you-need} model for this task.
-However, we soon discovered that the vanilla Transformer model is not well suited for music generation because of its $O(n)$ memory requirements, limiting maximum input sequences to around 2048 tokens maximum on a 16GB GPU card.
-This was a huge problem since most of the tokenized pieces from the \textit{MAESTRO} dataset reached about 50 000 tokens after tokenization.
-We solved this issue by implementing enhancements proposed by~\cite{efficient-transformers}, reducing memory requirements to $O(n)$.
+Firstly we tried to use the \textit{Transformer} model for this task.
+However, we soon discovered that the vanilla Transformer model is not well suited for music generation because we found out that the model only generates blank compositions.
+We tried to experiment with multiple tokenization methods to whether that would solve the problem.
+However, the problem prevailed.
+We then tried to employ the \textit{Music Transformer} for this task, and even though it had worse accuracy (25.13 \%) than the vanilla Transformer (30.34 \%), it performed subjectively better and did not exploit blank composition generation.
 
-This way, we produced satisfactory results with validation accuracy of xx\% surpassing vanilla Transformer by xx\%.
-We attach a trained model, Python notebooks used for model training, and a usage example along with generated pieces in the attachment of this work.
+We attach trained models, Python notebooks used for model training, and a usage example along with generated pieces in the attachment of this work.

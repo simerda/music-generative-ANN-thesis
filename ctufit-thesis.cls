@@ -483,3 +483,4 @@
 		\setmintedinline{bgcolor={}}
 	}{}%
 }
+\def\UrlBreaks{\do/\do-\do_}
