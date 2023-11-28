@@ -1,5 +1,7 @@
 # Generation of music using neural networks
 
+Rendered PDF available [here](https://drive.google.com/file/d/1eYsf2tHraBW9Y1dljkjeTq6G2nxbG17X/view?usp=sharing)
+
 ## Bachelor thesis
 
 This thesis aims at using artificial neural networks in machine music generation.
