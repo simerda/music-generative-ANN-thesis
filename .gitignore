@@ -18,3 +18,4 @@ _minted-ctufit-thesis/
 *.toc
 .idea/
 !assets/*.pdf
+.DS_Store
